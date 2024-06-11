@@ -1,0 +1,95 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.form-group {
+margin-bottom: 1rem;
+}
+
+input {
+padding: 0.5rem;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+input.input-error {
+border-color: red;
+background-color: #ffe6e6;
+}
+
+.error-message {
+color: red;
+font-size: 0.875rem;
+}
+
+button {
+padding: 0.5rem;
+font-size: 1rem;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #45a049;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+li {
+padding: 0.5rem;
+border-bottom: 1px solid #ddd;
+}
+
+li:last-child {
+border-bottom: none;
+}
