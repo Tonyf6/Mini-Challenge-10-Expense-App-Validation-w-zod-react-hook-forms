@@ -1,4 +1,4 @@
-// src/components/ExpenseForm.tsx
+
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 type ExpenseSchema = {
   name: string;
   amount: number;
-  date: string;
+  category: string;
 };
 
 interface ExpenseFormProps {
@@ -18,7 +18,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ addExpense }) => {
   const schema = z.object({
     name: z.string().nonempty("Name is required"),
     amount: z.number().min(0.01, "Amount must be greater than zero"),
-    date: z.string().nonempty("Date is required"),
+    category: z.string().nonempty("Category is required"),
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm<ExpenseSchema>({
@@ -50,13 +50,16 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ addExpense }) => {
         {errors.amount && <p className="error-message">{errors.amount.message}</p>}
       </div>
       <div className="form-group">
-        <label>Date</label>
-        <input 
-          type="date" 
-          {...register('date')} 
-          className={errors.date ? 'input-error' : ''}
-        />
-        {errors.date && <p className="error-message">{errors.date.message}</p>}
+        <label>Category</label>
+        <select {...register('category')} className={errors.category ? 'input-error' : ''}>
+          <option value="">Select a category</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Food">Food</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Groceries">Groceries</option>
+        </select>
+        {errors.category && <p className="error-message">{errors.category.message}</p>}
       </div>
       <button type="submit">Add Expense</button>
     </form>
